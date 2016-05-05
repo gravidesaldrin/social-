@@ -1,0 +1,14 @@
+<%= form_for(React.new) do |f| %>
+  <div class= "form-react">
+    <%= f.text_field :content, placeholder: "Text Here",
+      class: "react-content"%>
+    <%= f.radio_button :positive, true %> +
+    <%= f.radio_button :positive, false %> -
+    <%= f.button(type: "submit", class:"btn btn-default btn-sm") do %>
+      <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+    <% end %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :post_id, value: post.id %>
+  </div>
+
+<% end %>

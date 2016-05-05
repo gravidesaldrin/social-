@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Write Post</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for(Post.new) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, placeholder: "Text Here",
+          class: "form-control" %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
+      <div class= "actions pull-right">
+        <%= f.radio_button :positive, true %> +
+        <%= f.radio_button :positive, false %> -
+        <%= f.submit "Save", class:"btn btn-default btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>

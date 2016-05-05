@@ -1,0 +1,24 @@
+<div class= "container">
+  <div class= "col-md-4">
+    <%= render "posts/new_post" %>
+    <%= render "posts/top_posts" %>
+  </div>
+  <% if @posts.blank? %>
+    <div class= "col-md-8">
+      <div class="well">
+        No Posts!
+      </div>
+    </div>
+  <% else %>
+      <div class= "col-md-4">
+        <% @posts_cola.each do |pp| %>
+          <%= render "posts/positive_post", post: pp %>
+        <% end %>
+      </div>
+      <div class= "col-md-4">
+        <% @posts_colb.each do |pp| %>
+          <%= render "posts/positive_post", post: pp %>
+        <% end %>
+      </div>
+  <% end %>
+</div>

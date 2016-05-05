@@ -1,0 +1,37 @@
+<div class="panel panel-info top-post">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <% unless @last_posts.blank? %>
+        <a class= "left" href="#myCarousel" role="button" data-slide="prev">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+        </a>
+      <% end %>
+      Top Posts
+      <% unless @last_posts.blank? %>
+        <a class= "right" href="#myCarousel" role="button" data-slide="next">
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+      <% end %>
+    </h3>
+  </div>
+  <div class="panel-body panel-top-posts">
+    <div id="myCarousel" class="carousel slide " data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <% if @last_posts.blank? %>
+          <div class="item active">
+            No Posts Yet
+          </div>
+        <% else %>
+          <div class="item active">
+            RECENT POSTS
+          </div>
+          <% @last_posts.each do |pp| %>
+            <div class="item">
+              <%= render "posts/positive_post", post: pp %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Social" , root_path, class: "navbar-brand" %>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse navbar-main-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active">
+          <a href="#page-top"></a>
+        </li>
+        <li class = "page-scroll"><a href="#top">Top</a></li>
+        <li class = "page-scroll"><a href="#groups">Groups</a></li>
+        <li class = "page-scroll"><a href="#users">Members</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Posts", posts_path %></li>
+        <li><a href="#">Profile</a></li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, method: "delete" do %>
+              Log Out
+            <% end %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

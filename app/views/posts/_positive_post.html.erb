@@ -1,0 +1,29 @@
+  <% if post.positive %>
+  <div class="panel panel-success">
+  <% else %>
+  <div class="panel panel-danger">
+  <% end %>
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag(image_url("/logo1.jpg"), class: "img-thumbnail post-img") %>
+          <p>Dren</p>
+        </div>
+        <div class="col-md-8 post-content">
+         <h4> <%= post.content %></h4>
+        </div>
+      </div>
+    </div>
+    <% reacts = React.where post_id: post.id %>
+    <% reacts.each do |r| %>
+        <div class="panel-body reacts">
+          <div class="panel-content pull-right react-content">
+            <%= r.content %>
+            <%= image_tag(image_url("/logo1.jpg"), class: "img-small react-img") %>
+          </div>
+      </div>
+    <% end %>
+    <div class="panel-footer">
+      <%= render "reacts/new", post: post %>
+    </div>
+  </div>
